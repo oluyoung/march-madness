@@ -62,7 +62,7 @@ a:visited, a:link {
   background-color:#e4e4e4;
   color:#1C1C1C;
   border-left: 2px solid #ccc;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 3px solid #ccc;
   border-top: 2px solid #ccc;
 }
 
@@ -137,7 +137,7 @@ ul.sub-menu a {
   background-color: #ccc;
   border-left: 2px solid #ccc;
   border-right: 2px solid #ccc;
-  border-bottom: 3px solid #ccc;
+  border-bottom: 4px solid #ccc;
 }
 
 /* 3.0 */
@@ -145,7 +145,6 @@ ul.sub-menu a {
 /* Media Queries */
 
 /*
-@media (min-width:40.063em) { portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones }
 @media (min-width:60.063em) { tablet, landscape iPad, lo-res laptops ands desktops }
 @media (min-width:64.063em) { big landscape tablets, laptops, and desktops }
 @media (min-width:80.063em) { hi-res laptops and desktops }
@@ -175,9 +174,15 @@ ul.sub-menu a {
   .hd-title {
     font-size:1em;
   }
+  .hd-title,
+  .menu-icon {
+    padding-top: 7px;
+  }
   .hd-search #s {
     width:10%;
     transition: width .5s ease-in 0s;
+    padding-top: 6px;
+    border-bottom: 4px solid #ccc;
   }
   .hd-search #s:hover {
     width:70%
@@ -185,13 +190,15 @@ ul.sub-menu a {
 
   /* TODO: change to mag-glass icon */
   .hd-search #searchsubmit {
-    width:1.41699375em;
+    width:15%;
     font-size: 1.06em;
+    padding-top: 6px;
+    padding-bottom: 7px;
   }
   .hd-title {
     padding-left:0.5em;
     background-color: #ccc;
-    border-bottom: 4px solid #ccc;
+    border-bottom: 5px solid #ccc;
   }
 
   /* Side nav overlay */
@@ -231,19 +238,49 @@ ul.sub-menu a {
   .menu-icon {
     display: block;
     cursor:pointer;
+    padding-right: 7px;
+    padding-left: 7px;
   }
-
 
 }
 
 /* . 0 portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 @media (min-width:30.063em) {
   /* 2.0 Header */
+  .hd-search #s,
+  .hd-search #searchsubmit,
+  .hd-title{
+    padding:0.6em;
+  }
   .hd-search {
-    margin-right:1.5em;
+    border-top-width: 3px;
   }
-  .hd-search #s, .hd-search #searchsubmit, .hd-title{
-    padding:5px;
+  .hd-search #s {
+    border-top-width: 3px;
   }
+  .hd-search #searchsubmit {
+    padding-bottom: 12px;
+  }
+  .hd-title {
+    padding-top: 16px;
+    border-bottom: 0px
+  }
+
+  .site-nav #menu-primary-menu-links a {
+    font-size: 1.3em;
+  }
+  .menu-icon {
+    font-size: 1.5em;
+    padding-top: 11px;
+    border-bottom-width: 0px;
+  }
+  .site-nav .closebtn {
+    font-size: 2.5em;
+  }
+}
+
+/* .0 portrait tablets, portrait iPad, landscape e-readers,
+landscape 800x480 or 854x480 phones */
+@media (min-width:40.063em) {
 
 }
