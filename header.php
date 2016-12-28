@@ -11,6 +11,7 @@
 <section id=page>
 <header id=site-header>
   <div class=hd-top>
+    <a href="#" class="menu-icon">☰</a>
     <div class="hd-search">
       <?php get_search_form( ); ?>
     </div>
@@ -19,7 +20,8 @@
     </h1>
   </div>
   <!-- site nav -->
-  <nav class="site-nav clearfix">
+  <nav class="site-nav">
+    <a href="#" class="closebtn">&times;</a>
     <?php
     $args = array('theme_location'=>'header-nav');
     wp_nav_menu( $args );
