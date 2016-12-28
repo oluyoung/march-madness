@@ -14,61 +14,170 @@ a:visited, a:link {
   text-decoration: none;
 }
 
-/* 2.0 Header */
-.site-header {
+/* 1.1 OOCSS */
+.site-nav #menu-primary-menu-links,
+#site-header,
+.hd-top {
   display: flex;
-  flex-flow: column wrap;
+}
+.hd-title,
+.site-nav,
+.hd-search #s {
+  border-left: 2px solid #ccc;
+}
+.hd-top,
+.site-nav {
+  width:100%;
 }
 
-.hd-top {
+/* 2.0 Header */
+#site-header {
   width: 100%;
-  display: flex;
+  flex-flow: column wrap;
+  position: absolute;
+  top:3px;
+}
+.hd-top {
   flex-flow: row nowrap;
   justify-content: ;
   align-items: flex-start;
+  /* border-top: 2px solid #ccc; */
+  order: 1;
 }
 
 .hd-search {
   width: 30%;
+  margin-right: 2.5em;
 }
 
-.hd-search label.screen-reader-text {
+.hd-search .screen-reader-text {
   display: none;
 }
 
 .hd-search #s {
-    padding: 15px;
-    border: 0px;
-    font-size: 18px;
-    border-right: 1px solid #ccc;
+  width: 68%;
+  padding:15px;
+  border: 0px;
+  font-size: 1.1em;
+  border-right: 1px solid #ccc;
 }
 
 .hd-search #searchsubmit {
-    padding: 20px;
-    border: 1px solid #ccc;
-    background: #ccc;
-    color: white;
-    margin-left: -5px;
+  width: 24%;
+  padding: 1.3125em 0px;
+  border: 1px solid #23282d;
+  background: #23282d;
+  color: white;
+  margin-left: -5px;
+  font-size: 16px;
 }
 
 .hd-title {
-    margin-top: 0px;
-    width: 68%;
-    box-shadow: -2px 2px 1px #ccc;
-    padding: 15px;
-    margin-bottom: 0px;
+  margin: 0px;
+  width: 68%;
+  padding: 1.06rem;
 }
 
 .site-nav {
-  width: 100%;
-  box-shadow: 2px 2px 1px #ccc;
   border-top: 2px solid #ccc;
+  box-shadow: 2px 2px 1px #ccc;
+  order: 2;
 }
 
 .site-nav #menu-primary-menu-links {
   list-style: none;
-  display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   padding: 0;
 }
+
+.menu-item a {
+  padding: 0px 10px;
+}
+.menu-item a:hover {
+  background-color: #232323;
+  color: #fff
+}
+
+.menu-item-has-children {
+  position: relative;
+  display: block;
+}
+
+ul.sub-menu {
+  display: none;
+  list-style: none;
+  padding: 10px 5px;
+  position: absolute;
+  min-width:10em;
+  background-color: #ccc;
+}
+
+ul.sub-menu a {
+  width: 100%;
+}
+.menu-item-has-children:hover ul.sub-menu{
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+
+
+
+/* Media Queries */
+/*
+$bp-small : 24em;
+$bp-med : 46.8em;
+$bp-large : 50em;
+$bp-xl : 73em;
+*/
+
+/* @media (min-width:20em) { smartphones, iPhone, portrait 480x320 phones }
+@media (min-width:30.063em) { portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. }
+@media (min-width:40.063em) { portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones }
+@media (min-width:60.063em) { tablet, landscape iPad, lo-res laptops ands desktops }
+@media (min-width:64.063em) { big landscape tablets, laptops, and desktops }
+@media (min-width:80.063em) { hi-res laptops and desktops }
+ */
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media all and (min-width:20em) {
+  /* 2.0 Header */
+  .hd-search, .hd-title {
+    width:45%;
+  }
+  .hd-search {
+    margin-right:1em;
+  }
+  .hd-search #s, .hd-search #searchsubmit, .hd-title{
+    padding:0;
+  }
+  .hd-search #s, .hd-title {
+    font-size:1em;
+  }
+  .hd-search #s {
+    width:80%;
+  }
+    /* transition shorthand
+    transition: property duration timing-function delay;
+    */
+  .hd-search #s:hover {
+
+  }
+
+  /* change to mag-glass icon */
+  .hd-search #searchsubmit {
+    width:1.41699375em;
+  }
+  .hd-title {
+    padding-left:0.5em;
+  }
+  .site-nav #menu-primary-menu-links {
+    font-size:0.875em;
+    margin:0.3125em;
+  }
+
+  /* 3.0 */
+}
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width:30.063em) {}
