@@ -1,14 +1,86 @@
 /*
 Theme Name: March
-Theme URI: http://localhost/wordpress/wp-content/themes/march
+Theme URI: http://localhost/wordpress/
 Author: Trevor Young
-Author URI:
-Description:
 Version: 1.0
-License:
-License URI:
-Tags:
-blog, two-columns, left-sidebar, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
 Text Domain: marchbytrevoryoung
 */
 
+/** Table of Contents
+1.0 General
+2.0 Header
+**/
+
+/* 1.0 General */
+
+html {
+  margin-top: 0px !important;
+}
+
+body {
+  margin: 0;
+}
+
+a:visited, a:link {
+  color: black;
+  text-decoration: none;
+}
+
+/* 2.0 Header */
+.site-header {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.hd-top {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: ;
+  align-items: flex-start;
+}
+
+.hd-search {
+  width: 30%;
+}
+
+.hd-search label.screen-reader-text {
+  display: none;
+}
+
+.hd-search #s {
+    padding: 15px;
+    border: 0px;
+    font-size: 18px;
+    border-right: 1px solid;
+}
+
+.hd-search #searchsubmit {
+    padding: 20px;
+    border: 1px solid;
+    background: black;
+    color: white;
+    margin-left: -5px;
+}
+
+.hd-title {
+    margin-top: 0px;
+    width: 68%;
+    box-shadow: -2px 2px 1px;
+    padding: 15px;
+    margin-bottom: 0px;
+}
+
+.site-nav {
+  width: 100%;
+  box-shadow: 2px 2px 1px;
+  border-top: 2px solid;
+}
+
+.site-nav #menu-primary-menu-links {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+}

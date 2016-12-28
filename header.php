@@ -18,8 +18,12 @@
       <a href="<?php echo home_url(); ?>"><?php bloginfo('name');?></a>
     </h1>
   </div>
-  <nav class=site-nav>
-    <?php //nav menu ?>
+  <!-- site nav -->
+  <nav class="site-nav clearfix">
+    <?php
+    $args = array('theme_location'=>'header-nav');
+    wp_nav_menu( $args );
+    ?>
   </nav>
 
 </header>
