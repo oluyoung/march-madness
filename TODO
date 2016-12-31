@@ -2,7 +2,15 @@ Header:
 remove searchform for mag-glass icon
 
 Body:
+get_content
+index.php
 
 Sidebar:
 
 Footer:
+
+Functions:
+register sidebar
+register post-formats
+
+##
