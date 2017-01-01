@@ -2,8 +2,7 @@ Header:
 remove searchform for mag-glass icon
 
 Body:
-get_content
-index.php
+index.php - font, colors;
 
 Sidebar:
 
@@ -12,5 +11,6 @@ Footer:
 Functions:
 register sidebar
 register post-formats
+register thumbnails
 
 ##
