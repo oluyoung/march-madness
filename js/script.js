@@ -2,8 +2,9 @@ jQuery(document).ready(function($) {
 
   // add placeholder to header search fotm
   $('#s').attr('placeholder','Search...');
+  $('#searchsubmit').attr('value','S');
 
-  //open side nav
+  // open side nav
   $('.menu-icon').click(function(e){
     e.preventDefault();
     $('.site-nav').css({
@@ -14,6 +15,6 @@ jQuery(document).ready(function($) {
 
   $('.closebtn').click(function(e){
     e.preventDefault();
-    $('.site-nav').css('display','none');
+    $('.site-nav').css('visibility','hidden');
   });
 });
