@@ -1,4 +1,7 @@
-<section class="post post-standard <?php if( has_post_thumbnail() ){ ?> has-thumbnail <?php } ?>">
+<section class="post post-standard
+<?php if(has_post_thumbnail() ){ ?> has-thumbnail
+<?php } else { ?> no-thumbnail
+<?php } ?>">
   <!-- displays the post's thumbnail -->
   <div class="post-thumbnail">
     <a href=" <?php the_permalink() ?> "><?php the_post_thumbnail('small-thumb'); ?></a>
