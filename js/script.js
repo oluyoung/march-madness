@@ -13,6 +13,12 @@ jQuery(document).ready(function($) {
     });
   });
 
+  //
+    //$('a').parent('li').css('cursor','pointer');
+/*    $('a').parent('li').click(function(e){
+      window.location.href = $(this).children('a:first-child').attr('href');
+    });*/
+
   $('.closebtn').click(function(e){
     e.preventDefault();
     $('.site-nav').css('visibility','hidden');

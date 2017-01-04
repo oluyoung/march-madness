@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class=index-page>
+<section class="page-content index-page">
 
   <section class="content clearfix">
     <?php
@@ -15,10 +15,7 @@
     ?>
   </section>
 
-  <section class="secondary-column">
-    <?php get_sidebar( ); ?>
-  </section>
-
+  <?php get_sidebar(); ?>
 </section>
 
 <?php get_footer(); ?>
