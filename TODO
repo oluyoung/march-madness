@@ -1,5 +1,6 @@
 Header:
 remove searchform for mag-glass icon
+style header sub-cats
 
 Body:
 index.php - font, colors;
