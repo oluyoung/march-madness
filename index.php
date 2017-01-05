@@ -13,7 +13,6 @@
       echo "<h4>No content found</h4>";
     endif;
     ?>
-  <section class="pagination">
     <?php
     the_posts_pagination( array(
         'mid_size' => 2,
@@ -21,9 +20,6 @@
         'next_text' => __( '<span class="multi-posts-nav">Next</span>', 'textdomain' ),
     ) );
     ?>
-  </section>
-  </section>
-
   <?php get_sidebar(); ?>
 </section>
 
