@@ -5,6 +5,7 @@ Body:
 index.php - font, colors;
 
 Sidebar:
+a elements: inline-block
 
 Footer:
 
@@ -15,3 +16,4 @@ register thumbnails
 
 ##
 look at style.css tags for finishings
+use different color themes

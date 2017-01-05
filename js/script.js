@@ -13,12 +13,7 @@ jQuery(document).ready(function($) {
     });
   });
 
-  //
-    //$('a').parent('li').css('cursor','pointer');
-/*    $('a').parent('li').click(function(e){
-      window.location.href = $(this).children('a:first-child').attr('href');
-    });*/
-
+  // mobile side-nav close-button
   $('.closebtn').click(function(e){
     e.preventDefault();
     $('.site-nav').css('visibility','hidden');
