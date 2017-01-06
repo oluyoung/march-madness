@@ -34,17 +34,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 body {
   margin: 0;
 }
-
 a:visited, a:link {
   color: black;
   text-decoration: none;
 }
-
 #page {
   flex-flow: column nowrap;
   justify-content: space-between;
 }
-.off-screen,
 .screen-reader-text {
   position: absolute;
   top: -5000px;
@@ -177,16 +174,17 @@ ul.sub-menu a {
 
 /* 3.0 Body */
 /* 3.0.1 OOCSS */
- .post-standard .post-title,
- .post-standard .post-thumbnail,
- .post-standard .post-meta,
- .post-standard .excerpt,
+.post-standard .post-title,
+.post-standard .post-thumbnail,
+.post-standard .post-meta,
+.post-standard .excerpt,
 .widget-item .widget-title,
 .widget-item #wp-calendar caption,
-.widget-item ul {
+.widget-item ul,
+.page-numbers {
   box-shadow: 2px 2px 5px #969696;
   border: 1px solid #969696;
-  padding: 5px 7px;
+  padding: 0.25em 0.6em;
 }
 .widget-item .widget-title,
 .widget-item #wp-calendar caption {
@@ -329,6 +327,16 @@ ul.sub-menu a {
  .post-standard .excerpt {
   font-size: 0.95em;
 }
+.pagination {
+}
+.page-numbers {}
+.page-numbers.current {}
+.next {}
+.prev {}
+.multi-posts-nav {}
+
+/* 3.3 Single/Pages */
+
 
 /* Media Queries */
 

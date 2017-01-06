@@ -20,6 +20,7 @@
         'next_text' => __( '<span class="multi-posts-nav">Next</span>', 'textdomain' ),
     ) );
     ?>
+    </section>
   <?php get_sidebar(); ?>
 </section>
 
