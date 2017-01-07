@@ -4,9 +4,14 @@ style header sub-cats
 
 Body:
 index.php - font, colors;
+pagination
 
 Sidebar:
 a elements: inline-block
+
+Single:
+
+Pages:
 
 Footer:
 
