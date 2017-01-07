@@ -10,7 +10,7 @@
       ?>
       <section id=post-content>
       <!-- Post Title -->
-      <h1 id=post-title itemprop=headline><?php the_title(); ?></h1>
+      <h1 class=post-title id=post-title itemprop=headline><?php the_title(); ?></h1>
 
       <!-- Post Thumbnail -->
       <?php if(has_post_thumbnail() ): ?>
@@ -26,26 +26,31 @@
       </section>
 
       <!-- Post Meta -->
-      <aside id=post-meta>
+      <aside class=post-meta id=post-meta>
         <!-- Date Created -->
         <span itemprop=dateCreated>
-          <?php the_time("D jS, 'y"); ?>
+          <span class=meta-icon id=meta-date-icon></span>
+          <?php the_time("D jS M, 'y"); ?>
         </span>
         <span itemprop=dateModified>
+          <span class=meta-icon id=meta-date-icon></span>
+          <span class=meta-icon id=meta-date-edited-icon></span>
           <?php
           if(get_the_modified_time('U')>get_the_time('U')){
-              echo 'Last updated: '.get_the_modified_time("d/m/y g:i a");
+              echo get_the_modified_time("d/m/y g:i a");
           }
           ?>
         </span>
 
         <!-- Author -->
-        <span itemprop=author href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+        <a itemprop=author href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+          <span class=meta-icon id=meta-author-icon></span>
           <?php the_author(); ?>
-        </span>
+        </a>
 
         <!-- Category(ies) of Posts -->
         <span>
+          <span class=meta-icon id=meta-cat-icon></span>
           <?php
             $categories = get_the_category();
             $separator = ", ";
@@ -68,9 +73,18 @@
       ?>
     </article>
     <!-- Next and Previous Post -->
-    <section id=more-post-links></section>
+    <section id=more-post-links class=clearfix>
+      <span id="prev-post"><?php previous_post_link(); ?></span>
+      <span id="next-post"><?php next_post_link(); ?></span>
+    </section>
     <!-- Post Comment -->
-    <section id=post-comments></section>
+    <section class=post-comments>
+      <?php
+        if ( comments_open() || get_comments_number() ) :
+          comments_template();
+        endif;
+      ?>
+    </section>
   </section>
 </section>
 
