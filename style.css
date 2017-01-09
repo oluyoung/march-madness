@@ -79,6 +79,22 @@ ul.sub-menu a,
 .hd-title {
   border-bottom: 2px solid #23282d;
 }
+.fixed {
+  position:fixed;
+}
+.site-nav.fixed {
+  width:100%;
+  background-color: #23282d;
+}
+.site-nav.fixed a {
+  color: whitesmoke;
+}
+.site-nav.fixed .sub-menu a {
+  color: #000;
+}
+.hd-search.fixed {
+  top:39px;
+}
 #site-header {
   width: 100%;
   flex-flow: column wrap;
@@ -88,7 +104,6 @@ ul.sub-menu a,
   align-items: flex-start;
   order: 1;
 }
-
 .hd-search {
   width: 30%;
   margin-right: 2.5em;
@@ -127,6 +142,7 @@ ul.sub-menu a,
 }
 .site-nav {
   order: 2;
+  background-color: #fff;
 }
 .site-nav .closebtn {
   display:none;
@@ -139,11 +155,11 @@ ul.sub-menu a,
   margin: 10px 0px;
 }
 .menu-item a {
-  padding: 0px 10px;
+  padding: 10px 35px;
 }
 .menu-item a:hover {
-  background-color: #232323;
-  color: #fff
+  background-color: #969696;
+  color: #fff;
 }
 .menu-item-has-children {
   position: relative;
@@ -152,13 +168,15 @@ ul.sub-menu a,
 ul.sub-menu {
   display: none;
   list-style: none;
-  padding: 10px 5px;
   position: absolute;
+  padding: 0;
   min-width:10em;
-  background-color: #ccc;
+  background-color: #fff;
+  border: 2px solid #969696;
 }
-ul.sub-menu a {
-  width: 100%;
+ul.sub-menu a:hover {
+  background-color: #969696;
+  color: whitesmoke;
 }
 .menu-item-has-children:hover ul.sub-menu{
   display:flex;
