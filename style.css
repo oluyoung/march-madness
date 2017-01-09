@@ -74,11 +74,12 @@ ul.sub-menu a,
 
 
 /* 2.0 Header */
-/* 2.1 OOCSS */
+/* 2.0.1 OOCSS */
 .site-nav,
 .hd-title {
   border-bottom: 2px solid #23282d;
 }
+/* 2.0.2 General */
 .fixed {
   position:fixed;
 }
@@ -185,7 +186,8 @@ ul.sub-menu a:hover {
   border-bottom: 4px solid #ccc;
 }
 
-/* 3.0 Body OOCSS */
+/* 3.0 Body */
+/* 3.1 General Body OOCSS */
 .post-title,
 .post-standard .post-thumbnail,
 .post-meta,
@@ -240,8 +242,7 @@ ul.sub-menu a:hover {
   /* text-transform: uppercase; */
 }
 
-/* 3.0 Body */
-/* 3.0.1 General Wrapper Styles*/
+/* 3.2 General Content Wrapper Styles*/
 .page-content {
     flex-flow: row wrap;
     justify-content: center;
@@ -264,14 +265,34 @@ ul.sub-menu a:hover {
   margin-left:100px;
 }
 
-/* 3.1 Sidebar */
+/* 3.3 Sidebar */
+/* 3.3.1 OOCSS */
+.widget-item ul li,
+.widget-item #wp-calendar td a {
+  color: #810404;
+}
+.widget-item #wp-calendar table,
+.widget-item #wp-calendar td {
+  border-collapse: collapse;
+  border: 2px solid #969696;
+}
+.widget-item #wp-calendar #prev,
+.widget-item #wp-calendar #next {
+  background: #8f0303;
+  padding: 2px 5px;
+}
+.widget-item #wp-calendar #prev a,
+.widget-item #wp-calendar #next a {
+  color: #FFF;
+}
+
+/* 3.3.2 Sidebar Styles */
 .widget-item ul {
   list-style: none;
   padding: 0px;
 }
 .widget-item ul li {
   padding: 5px;
-  color: #810404;
 }
 .widget-item ul li a {
   display: inline-block;
@@ -295,10 +316,6 @@ ul.sub-menu a:hover {
   background-color: #23282D;
   color: #fff;
 }
-.widget-item #wp-calendar table,
-.widget-item #wp-calendar td {
-  border-collapse: collapse;
-}
 .widget-item #wp-calendar #prev {
   text-align: left;
 }
@@ -306,7 +323,6 @@ ul.sub-menu a:hover {
   text-align: right;
 }
 .widget-item #wp-calendar td a {
-  color: #810404;
   font-weight: bold;
 }
 .widget-item #wp-calendar tbody a {
@@ -322,7 +338,7 @@ ul.sub-menu a:hover {
   font-size: 0.9em;
 }
 
-/* 3.2 Index Body */
+/* 3.4 Index Body */
  .post-standard {
   flex-flow: row wrap;
   justify-content: space-between;
@@ -389,7 +405,27 @@ ul.sub-menu a:hover {
 .multi-posts-nav {}
 
 
-/* 3.3 Single Post Page */
+/* 3.5 Single Post Page */
+/* 3.5.1 OOCSS */
+.single-post-page .sidebar,
+#post #post-meta {
+  margin-top: 5.5em;
+}
+#post #post-thumbnail,
+#post #post-thumbnail img {
+  width: 100%;
+  height: auto;
+}
+#commentform input[type="text"],
+.post-comments #respond #commentform p textarea {
+  border: 2px solid #979797;
+}
+.post-comments #respond #commentform p a,
+#cancel-comment-reply-link {
+  color: crimson;
+}
+
+/* 3.5.2 Styles */
 .single-post-page {
   width: 100%;
   flex-flow:row nowrap;
@@ -397,10 +433,7 @@ ul.sub-menu a:hover {
   align-items: flex-start;
   margin-top: 1.1em;
 }
-.single-post-page .sidebar,
-#post #post-meta {
-  margin-top: 5.5em;
-}
+
 .single-post-page .sidebar {
   order: 1;
   width: 20%;
@@ -417,22 +450,18 @@ ul.sub-menu a:hover {
   justify-content: space-between;
 }
 #post #post-title {
-    font-size: 1.65em;
-    margin-top: 0px;
-    margin-bottom: 1.5em;
-    text-align: center;
-    padding: 0.3em 0px;
+  font-size: 1.65em;
+  margin-top: 0px;
+  margin-bottom: 1.5em;
+  text-align: center;
+  padding: 0.3em 0px;
 }
 #post #post-content {
   order:1;
   width: 70%;
   margin-right: 0;
 }
-#post #post-thumbnail,
-#post #post-thumbnail img {
-  width: 100%;
-  height: auto;
-}
+
 #post #post-meta {
   order: 2;
   width: 25%;
@@ -467,6 +496,9 @@ ul.sub-menu a:hover {
 #more-post-links {
   width: 70.5%;
 }
+.post-no-thumbnail #more-post-links {
+  width: 66%;
+}
 #more-post-links #prev-post {
   float: left;
 }
@@ -475,7 +507,7 @@ ul.sub-menu a:hover {
   text-align: right;
 }
 
-/* 3.3.1 Post Comments */
+/* 3.5.1 Post Comments */
 .post-comments {
   order: 3;
   font-family: Signika-Regular;
@@ -593,12 +625,6 @@ ul.sub-menu a:hover {
   flex-flow: column nowrap;
   justify-content: flex-start;
 }
-#commentform input[type="text"],
-.post-comments #respond #commentform p textarea
-{
-  border: 2px solid #979797;
-}
-
 #commentform input[type="text"] {
   order: 2;
   padding: 5px;
@@ -610,10 +636,6 @@ ul.sub-menu a:hover {
 }
 .post-comments #respond p.comment-notes {
   display: none !important;
-}
-.post-comments #respond #commentform p a,
-#cancel-comment-reply-link {
-  color: crimson;
 }
 .post-comments #respond #commentform p textarea {
   order: 2;
@@ -638,7 +660,7 @@ ul.sub-menu a:hover {
   font-size: 1em;
 }
 
-/* 3.4 Page */
+/* 3.6 Page */
 #single-page {
   justify-content: space-around;
 }
@@ -667,7 +689,7 @@ ul.sub-menu a:hover {
 }
 
 
-/* Media Queries */
+/* 4.0 Media Queries */
 
 /*
 @media (min-width:60.063em) { tablet, landscape iPad, lo-res laptops and desktops }
@@ -675,7 +697,7 @@ ul.sub-menu a:hover {
 @media (min-width:80.063em) { hi-res laptops and desktops }
  */
 
-/* .0 smartphones, iPhone, portrait 480x320 phones */
+/* 4.1 smartphones, iPhone, portrait 480x320 phones */
 @media all and (min-width:20em) and (max-width:40.063em){
 
   /* Header */
@@ -762,7 +784,7 @@ ul.sub-menu a:hover {
 
 }
 
-/* .0 portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* 4.2 portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 @media (min-width:30.063em) and (max-width:40.063em){
   /* 2.0 Header */
   .hd-search #s,
@@ -791,13 +813,13 @@ ul.sub-menu a:hover {
   }
 }
 
-/* .0 portrait tablets, portrait iPad, landscape e-readers,
+/* 4.3 portrait tablets, portrait iPad, landscape e-readers,
 landscape 800x480 or 854x480 phones */
 @media (min-width:40.063em) {
 
 }
 
-/* big landscape tablets, laptops, and desktops */
+/* 4.4 big landscape tablets, laptops, and desktops */
 @media (min-width:64.063em) {
 
 }
