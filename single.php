@@ -1,28 +1,27 @@
 <?php get_header(); ?>
 
-<section id=single-post-page>
+<section id=single-post class=single-post-page>
   <?php get_sidebar(); ?>
   <section id=content>
-    <article id=post itemscope itemtype=https://schema.org/Article>
+    <!-- Post itself-->
+    <article id=post itemscope itemtype=https://schema.org/Article class="<?php if(has_post_thumbnail() ): ?>post-has-thumbnail <?php else: ?>post-no-thumbnail <?php endif; ?> ">
       <?php
         if(have_posts()):
           while(have_posts()): the_post();
       ?>
       <section id=post-content>
-      <!-- Post Title -->
-      <h1 class=post-title id=post-title itemprop=headline><?php the_title(); ?></h1>
+        <!-- Post Title -->
+        <h1 class=post-title id=post-title itemprop=headline><?php the_title(); ?></h1>
 
-      <!-- Post Thumbnail -->
-      <?php if(has_post_thumbnail() ): ?>
+        <!-- Post Thumbnail -->
         <div id=post-thumbnail>
           <span itemprop=image><?php the_post_thumbnail('banner-img'); ?></span>
         </div>
-      <?php endif; ?>
 
-      <!-- Content -->
-      <main class="post-content" itemprop=articleBody>
-          <?php the_content(); ?>
-      </main>
+        <!-- Content -->
+        <main class="post-content" itemprop=articleBody>
+            <?php the_content(); ?>
+        </main>
       </section>
 
       <!-- Post Meta -->

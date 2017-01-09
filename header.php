@@ -8,7 +8,7 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<section id=page>
+<section id=page-wrap>
 <header id=site-header>
   <div class=hd-top>
     <a href="#" class="menu-icon">☰</a>
