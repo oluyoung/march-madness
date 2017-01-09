@@ -84,13 +84,6 @@ ul.sub-menu a,
 }
 .site-nav.fixed {
   width:100%;
-  background-color: #23282d;
-}
-.site-nav.fixed a {
-  color: whitesmoke;
-}
-.site-nav.fixed .sub-menu a {
-  color: #000;
 }
 .hd-search.fixed {
   top:39px;
@@ -155,7 +148,7 @@ ul.sub-menu a,
   margin: 10px 0px;
 }
 .menu-item a {
-  padding: 10px 35px;
+  padding: 11px 35px;
 }
 .menu-item a:hover {
   background-color: #969696;

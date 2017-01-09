@@ -13,10 +13,9 @@ jQuery(document).ready(function($) {
     });
   });
 
-  //fixed scroll
+  //position:fixed navbar and searchbar scroll
   $(window).on('scroll', function(e){
     if ($(document).scrollTop() > $('.hd-top').height()) {
-      //fixed navbar and searchbar
       $('.site-nav, .hd-search').addClass('fixed');
     } else {
       $('.site-nav, .hd-search').removeClass('fixed');
