@@ -198,7 +198,8 @@ ul.sub-menu a {
 .widget-item .widget-title,
 .post-title,
 .widget-item #wp-calendar caption {
-  background-color: #23282D; /* #4b0b0b */
+  /* background-color: #23282D; */ /* #4b0b0b */
+  background-image: url('/wordpress/wp-content/themes/march/res/pinstriped_suit.png');
   color:#fff;
   font-weight: bold;
   /* text-transform: uppercase; */
@@ -437,15 +438,16 @@ ul.sub-menu a {
 #post #post-meta a {
   color: #8F0303;
 }
-#post .single-content {
+#post .post-content {
   border: 1px solid #969696;
   padding: 1em 1.5em;
-  width: 131%;
+  width: 100%;
   box-shadow: 2px 2px 5px #969696;
   margin-top: 10px;
+  background-image: url('');
 }
 #more-post-links {
-  width: 91%;
+  width: 70.5%;
 }
 #more-post-links #prev-post {
   float: left;

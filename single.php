@@ -20,7 +20,7 @@
       <?php endif; ?>
 
       <!-- Content -->
-      <main class="single-content" itemprop=articleBody>
+      <main class="post-content" itemprop=articleBody>
           <?php the_content(); ?>
       </main>
       </section>
