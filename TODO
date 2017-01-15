@@ -1,6 +1,5 @@
 Header:
 remove searchform for mag-glass icon
-style header sub-cats
 
 Body:
 index.php - font, colors;
@@ -16,10 +15,10 @@ Pages:
 Footer:
 
 Functions:
-register sidebar
 register post-formats
-register thumbnails
 
 ##
 look at style.css tags for finishings
 use different color themes
+
+meta font: <link href="https://fonts.googleapis.com/css?family=Alegreya+SC" rel="stylesheet">
