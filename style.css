@@ -6,9 +6,6 @@ Description: Following my month of the year themes
 Version: 1.0
 Text Domain: march
 Tags: one-column, two-columns, right-sidebar, left-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 */
 
 /*--------------------------------------------------------------
@@ -29,11 +26,23 @@ Use it to make something cool, have fun, and share what you've learned with othe
 **/
 
 /**
+    Fonts
+    @font-face {font-family: ''; src: url(res/fonts/);}
+**/
+
+/* site-header: quicksand */
+/* post-title, widget-title: Nunito */
+/* body texts: nav, excerpt, post, widget, post-meta: source sans pro */
+
+@import url('https://fonts.googleapis.com/css?family=Nunito|Quicksand|Source+Sans+Pro:300');
+
+
+/**
     1.0 General
 **/
 body {
   margin: 0;
-  font-family: monospace;
+  font-family: sans-serif;
   font-size: 1.1em;
   line-height: 1.5;
 }
@@ -41,9 +50,11 @@ a:visited,
 a:link {
   color: black;
   text-decoration: none;
+  cursor: pointer;
 }
-a:hover {
-  border-bottom: 2px solid inherit;
+a:hover,
+a:focus {
+  text-decoration: underline;
 }
 #page-wrap {
   flex-flow: column nowrap;
@@ -87,6 +98,8 @@ ul.sub-menu a,
 .post-title,
 .widget-item #wp-calendar caption {
   background-color: #1b1b1b;
+  font-variant: small-caps;
+  letter-spacing: 1px;
 }
 
 
@@ -104,7 +117,7 @@ ul.sub-menu a,
   width:100%;
 }
 .hd-search.fixed {
-  top:39px; /* 70px */
+  top:46px; /* 70px */
 }
 #site-header {
   width: 100%;
@@ -123,16 +136,20 @@ ul.sub-menu a,
   width: 68%;
   padding: 7px;
   border: 0px;
-  font-size: 1.09em;
+  font-size: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
   background-color: #f5f3f3;
   color: #1C1C1C;
   border-left: 2px solid #23282d;
   border-bottom: 2px solid #23282d;
   border-top: 2px solid #23282d;
 }
+.hd-search #s:focus {
+  background-color: #FFF;
+}
 .hd-search #searchsubmit {
   width: 15%;
-  padding: 8px 0px;
+  padding: 8px 0px 7px;
   border: 2px solid #23282d;
   border-bottom-right-radius: 7px;
   background-color: #23282d;
@@ -146,6 +163,8 @@ ul.sub-menu a,
   padding: 5px 0px 5px 10px;
   border-bottom-left-radius: 7px;
   border-left: 2px solid #1b1b1b;
+  font-family: Quicksand;
+  font-weight: normal;
 }
 .hd-title a {
   color: #fff;
@@ -153,6 +172,7 @@ ul.sub-menu a,
 .site-nav {
   order: 2;
   background-color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 .site-nav .closebtn {
   display:none;
@@ -170,6 +190,7 @@ ul.sub-menu a,
 .menu-item a:hover {
   background-color: #969696;
   color: #fff;
+  text-decoration: none;
 }
 .menu-item-has-children {
   position: relative;
@@ -227,14 +248,16 @@ ul.sub-menu a:hover {
 .post-title,
 .widget-item #wp-calendar caption {
   color:#fff;
-  font-weight: bold;
-  /* text-transform: uppercase; */
+  font-family: Nunito;
+  font-weight: normal;
 }
 .widget-item .tagcloud a,
 .widget-item ul li,
 .widget-item select {
   margin-bottom: 0.2em;
   border: 1px solid #969696;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.95em;
 }
 .single-post-page #post,
 #more-post-links,
@@ -258,9 +281,8 @@ ul.sub-menu a:hover {
 
 .post-meta a,
 .excerpt p a,
-.widget-item ul li,
 .widget-item #wp-calendar td a {
-  color: #82878c;
+  color: rgb(143, 3, 3);
 }
 
 /* 3.2 General Content Wrapper Styles*/
@@ -301,6 +323,7 @@ ul.sub-menu a:hover {
   background: #23282d;
   padding: 2px 5px;
   border: none;
+  letter-spacing: 1px;
 }
 .widget-item #wp-calendar #prev a,
 .widget-item #wp-calendar #next a {
@@ -314,6 +337,7 @@ ul.sub-menu a:hover {
 }
 .widget-item ul li {
   padding: 5px;
+  color: #82878c;
 }
 .widget-item ul li a {
   display: inline-block;
@@ -329,6 +353,8 @@ ul.sub-menu a:hover {
 }
 .widget-item #wp-calendar tr {
   text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.9em;
 }
 .widget-item #wp-calendar caption {
   margin-bottom: 10px;
@@ -343,15 +369,14 @@ ul.sub-menu a:hover {
 .widget-item #wp-calendar #next {
   text-align: right;
 }
+.widget-item #wp-calendar .pad {
+  border: none;
+}
 .widget-item #wp-calendar td a {
   font-weight: bold;
 }
-.widget-item #wp-calendar tbody a {
-  text-decoration: underline;
-}
 .widget-item #wp-calendar td a:hover {
-  background-color: #FFF;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .widget-item select {
   padding: 0.55em 0.8em;
@@ -396,15 +421,18 @@ ul.sub-menu a:hover {
  .post-standard .post-title a {
   color: #fff;
 }
- .post-standard .post-meta {
-  font-family: 'Open Sans', sans-serif;
-  margin: 10px 0px;
+ .post-meta {
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.8em;
+ }
+ .post-standard .post-meta {
+  margin: 10px 0px;
 }
  .post-standard .post-meta a {
 }
  .post-standard .excerpt {
   font-size: 0.95em;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 .post-standard .excerpt p > * {
   display: block;
@@ -414,6 +442,7 @@ ul.sub-menu a:hover {
 .post-standard .excerpt .updated-time {
   margin-top: 10px;
   font-size: 0.8em;
+  font-family: monospace;
   text-align: right;
 }
 
@@ -423,7 +452,6 @@ ul.sub-menu a:hover {
 .next {}
 .prev {}
 .multi-posts-nav {}
-
 
 /* 3.5 Single Post Page */
 /* 3.5.1 OOCSS */
@@ -445,7 +473,7 @@ ul.sub-menu a:hover {
   color: crimson;
 }
 
-/* 3.5.2 Styles */
+/* 3.5.2 Single Styles */
 .single-post-page {
   width: 100%;
   flex-flow:row nowrap;
@@ -480,10 +508,12 @@ ul.sub-menu a:hover {
   order:1;
   width: 70%;
   margin-right: 0;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 #post #post-meta {
   order: 2;
+  font-size: 0.9em;
   width: 25%;
   min-height: 5%;
   max-height: 10%;
@@ -505,6 +535,9 @@ ul.sub-menu a:hover {
   margin-top: 10px;
   background-image: url('');
 }
+#post .post-content a {
+  color: rgb(135,3,3);
+}
 #post .post-content iframe {
   border-radius: 7px;
   box-shadow: 2px 2px 5px #666;
@@ -522,6 +555,7 @@ ul.sub-menu a:hover {
   width:100%;
   margin: 0;
   margin-top: 3em;
+
 }
 #more-post-links #prev-post {
   float: left;
@@ -684,7 +718,13 @@ ul.sub-menu a:hover {
   font-size: 1em;
 }
 
-/* 3.6 Page */
+/* 3.6 Archives */
+.archive-title {
+  font: small-caps normal 1.3em'Source Sans Pro',sans-serif;
+  letter-spacing: 1.5px;
+}
+
+/* 3.7 Page */
 #single-page {
   justify-content: space-around;
 }
@@ -696,6 +736,8 @@ ul.sub-menu a:hover {
   width: 60%;
   justify-content: space-around;
 }
+
+
 
 /*  Clearfix Class */
 .clearfix:before,
@@ -745,7 +787,8 @@ ul.sub-menu a:hover {
     font-size:1em;
   }
   .hd-title {
-    padding-top: 7px;
+    padding-left:0.5em;
+    padding-top:8px;
   }
   .hd-search #s {
     width:10%;
@@ -759,10 +802,6 @@ ul.sub-menu a:hover {
   /* TODO: change to mag-glass icon */
   .hd-search #searchsubmit {
     width:15%;
-  }
-  .hd-title {
-    padding-left:0.5em;
-    padding-top:8px;
   }
 
   /* Side nav overlay */
