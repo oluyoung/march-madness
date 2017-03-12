@@ -1,10 +1,10 @@
 /*
-Theme Name: March Madness
+Theme Name: March
 Theme URI: https://localhost/wordpress
 Author: Trevor Young
-Description: TFollowing my month of the year themes
+Description: Following my month of the year themes
 Version: 1.0
-Text Domain: marchmadness
+Text Domain: march
 Tags: one-column, two-columns, right-sidebar, left-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
@@ -28,15 +28,22 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .0 portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.
 **/
 
-/* 1.0 General */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
+/**
+    1.0 General
+**/
 body {
   margin: 0;
+  font-family: monospace;
+  font-size: 1.1em;
+  line-height: 1.5;
 }
-a:visited, a:link {
+a:visited,
+a:link {
   color: black;
   text-decoration: none;
+}
+a:hover {
+  border-bottom: 2px solid inherit;
 }
 #page-wrap {
   flex-flow: column nowrap;
@@ -65,12 +72,23 @@ ul.sub-menu a,
 .single-post-page #post {
   display: flex;
 }
+.icon {
+  width: 0.9em;
+  height: 0.9em;
+}
 /*
 .hd-top,
 .site-nav {
   width:100%;
 }
 */
+.hd-title,
+.widget-item .widget-title,
+.post-title,
+.widget-item #wp-calendar caption {
+  background-color: #1b1b1b;
+}
+
 
 /* 2.0 Header */
 /* 2.0.1 OOCSS */
@@ -86,7 +104,7 @@ ul.sub-menu a,
   width:100%;
 }
 .hd-search.fixed {
-  top:39px;
+  top:39px; /* 70px */
 }
 #site-header {
   width: 100%;
@@ -127,8 +145,7 @@ ul.sub-menu a,
   width: 68%;
   padding: 5px 0px 5px 10px;
   border-bottom-left-radius: 7px;
-  border-left: 2px solid #23282d;
-  background-color: #23282d;
+  border-left: 2px solid #1b1b1b;
 }
 .hd-title a {
   color: #fff;
@@ -188,7 +205,7 @@ ul.sub-menu a:hover {
 /* 3.0 Body */
 /* 3.1 General Body OOCSS */
 .post-title,
-.post-standard .post-thumbnail,
+.post-standard .post-thumbnail img,
 .post-meta,
 .post-standard .excerpt,
 .widget-item .widget-title,
@@ -209,8 +226,6 @@ ul.sub-menu a:hover {
 .widget-item .widget-title,
 .post-title,
 .widget-item #wp-calendar caption {
-  /* background-color: #23282D; */ /* #4b0b0b */
-  background-image: url('/wordpress/wp-content/themes/march/res/pinstriped_suit.png');
   color:#fff;
   font-weight: bold;
   /* text-transform: uppercase; */
@@ -219,7 +234,7 @@ ul.sub-menu a:hover {
 .widget-item ul li,
 .widget-item select {
   margin-bottom: 0.2em;
-  border: 2px solid #969696;
+  border: 1px solid #969696;
 }
 .single-post-page #post,
 #more-post-links,
@@ -231,7 +246,7 @@ ul.sub-menu a:hover {
 #more-post-links #next-post {
   padding: .45em .2em;
   width: 48%;
-  background: #8F0303;
+  background: #23282d;
   color: #fff;
   font-weight: bold;
 }
@@ -239,6 +254,13 @@ ul.sub-menu a:hover {
 #more-post-links #next-post a {
   color: #fff;
   /* text-transform: uppercase; */
+}
+
+.post-meta a,
+.excerpt p a,
+.widget-item ul li,
+.widget-item #wp-calendar td a {
+  color: #82878c;
 }
 
 /* 3.2 General Content Wrapper Styles*/
@@ -268,17 +290,17 @@ ul.sub-menu a:hover {
 /* 3.3.1 OOCSS */
 .widget-item ul li,
 .widget-item #wp-calendar td a {
-  color: #810404;
 }
 .widget-item #wp-calendar table,
 .widget-item #wp-calendar td {
   border-collapse: collapse;
-  border: 2px solid #969696;
+  border: 1px solid #969696;
 }
 .widget-item #wp-calendar #prev,
 .widget-item #wp-calendar #next {
-  background: #8f0303;
+  background: #23282d;
   padding: 2px 5px;
+  border: none;
 }
 .widget-item #wp-calendar #prev a,
 .widget-item #wp-calendar #next a {
@@ -356,6 +378,7 @@ ul.sub-menu a:hover {
  .post-standard .post-thumbnail img {
   width: 100%;
   height: 100%;
+  padding: 0;
 }
  .post-standard.no-thumbnail .excerpt-info {
   width: 90%;
@@ -379,7 +402,6 @@ ul.sub-menu a:hover {
   font-size: 0.8em;
 }
  .post-standard .post-meta a {
-  color: #8F0303;
 }
  .post-standard .excerpt {
   font-size: 0.95em;
@@ -388,7 +410,6 @@ ul.sub-menu a:hover {
   display: block;
 }
 .post-standard .excerpt p a {
-  color: #8F0303;
 }
 .post-standard .excerpt .updated-time {
   margin-top: 10px;
@@ -484,19 +505,23 @@ ul.sub-menu a:hover {
   margin-top: 10px;
   background-image: url('');
 }
-.post-has-thumbnail .post-content {
+#post .post-content iframe {
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px #666;
+}
+/*.post-has-thumbnail .post-content {
   width: 100%;
 }
 .post-no-thumbnail .post-content {
   width: 93%;
 }
-
+*/
 /* Post Next & Previous Links */
 #more-post-links {
-  width: 70.5%;
-}
-.post-no-thumbnail #more-post-links {
-  width: 66%;
+  order:3;
+  width:100%;
+  margin: 0;
+  margin-top: 3em;
 }
 #more-post-links #prev-post {
   float: left;
@@ -744,7 +769,6 @@ ul.sub-menu a:hover {
   .site-nav {
     display:none;
     height: 100%;
-    position:fixed;
     left:0;
     z-index: 1000;
     background-color: #1B1B1B;

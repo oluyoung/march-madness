@@ -22,16 +22,22 @@
         <main class="post-content" itemprop=articleBody>
             <?php the_content(); ?>
         </main>
+
+        <!-- Next and Previous Post -->
+        <section id=more-post-links class=clearfix>
+          <span id="prev-post"><?php previous_post_link(); ?></span>
+          <span id="next-post"><?php next_post_link(); ?></span>
+        </section>
       </section>
 
       <!-- Post Meta -->
       <aside class=post-meta id=post-meta>
         <!-- Date Created -->
-        <span itemprop=dateCreated>
+        <span class="meta-info date-created" itemprop=dateCreated>
           <span class=meta-icon id=meta-date-icon></span>
           <?php the_time("D jS M, 'y"); ?>
         </span>
-        <span itemprop=dateModified>
+        <span class="meta-info date-modified" itemprop=dateModified>
           <span class=meta-icon id=meta-date-icon></span>
           <span class=meta-icon id=meta-date-edited-icon></span>
           <?php
@@ -42,14 +48,16 @@
         </span>
 
         <!-- Author -->
-        <a itemprop=author href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
-          <span class=meta-icon id=meta-author-icon></span>
-          <?php the_author(); ?>
-        </a>
+        <span class="meta-info authors">
+          <a itemprop=author href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+            <span class=meta-icon id=meta-author-icon></span>
+            <?php the_author(); ?>
+          </a>
+        </span>
 
         <!-- Category(ies) of Posts -->
-        <span>
-          <span class=meta-icon id=meta-cat-icon></span>
+        <span class="meta-info categories">
+          <span class=meta-icon id=meta-cat-icon><?php echo get_svg(array('icon'=>'folder-open')); ?></span>
           <?php
             $categories = get_the_category();
             $separator = ", ";
@@ -63,6 +71,9 @@
             echo trim($out, $separator);
           ?>
         </span>
+        <span class="meta-info tags">
+          <span class="meta-icon" id=meta-tag-icon><?php echo get_svg(array('icon'=>'hashtag')); ?></span>
+        </span>
       </aside>
       <?php
         endwhile;
@@ -71,11 +82,6 @@
         endif;
       ?>
     </article>
-    <!-- Next and Previous Post -->
-    <section id=more-post-links class=clearfix>
-      <span id="prev-post"><?php previous_post_link(); ?></span>
-      <span id="next-post"><?php next_post_link(); ?></span>
-    </section>
     <!-- Post Comment -->
     <section class=post-comments>
       <?php

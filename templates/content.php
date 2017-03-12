@@ -40,10 +40,9 @@
       <p itemprop=articleBody>
       <?php echo get_the_excerpt(); ?>
       <a itemprop=url href="<?php the_permalink(); ?>">Read more &raquo;</a>
-      <span itemprop=dateModified class=updated-time>
-      <?php
+      <span itemprop=dateModified class=updated-time><?php
         if ( get_the_modified_time( 'U' ) > get_the_time( 'U' ) ) {
-            echo 'Last updated: '.get_the_modified_time('F jS, Y g:i a');
+          echo 'Last updated: '.get_the_modified_time('F jS, Y g:i a');
         }
         ?>
         </span>

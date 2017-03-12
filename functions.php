@@ -5,7 +5,7 @@ function march_resources(){
   // Main Stylesheet
   wp_enqueue_style('style', get_stylesheet_uri());
   // Main Script
-  wp_enqueue_script('script', get_template_directory_uri().'/js/script.js', array('jquery'), '', true );
+  wp_enqueue_script('script', get_template_directory_uri().'/res/js/script.js', array('jquery'), '', true );
 }
 add_action('wp_enqueue_scripts', 'march_resources');
 
@@ -37,4 +37,14 @@ function WidgetInit(){
     registerSidebarArray('Sidebar Index', 'sidebarindex');
 }
 add_action('widgets_init', 'WidgetInit');
+
+
+
+/** Internal universal files fequired **/
+/**
+ * SVG icons functions and filters.
+ */
+require get_parent_theme_file_path( '/res/inc/icon-functions.php' );
+
 ?>
+
