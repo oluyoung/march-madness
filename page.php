@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id=single-page class=single-post-page>
+<section id="single-page" class="single-post-page page-content">
   <?php get_sidebar(); ?>
   <section id=content>
     <?php
