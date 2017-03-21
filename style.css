@@ -5,7 +5,7 @@ Author: Trevor Young
 Description: Following my month of the year themes
 Version: 1.0
 Text Domain: march
-Tags: one-column, two-columns, right-sidebar, left-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: one-column, two-columns, right-sidebar, left-sidebar, flexible-header, custom-colors, custom-header, custom-menu, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 */
 
 /*--------------------------------------------------------------
@@ -23,11 +23,6 @@ Tags: one-column, two-columns, right-sidebar, left-sidebar, flexible-header, acc
 
 .0 smartphones, iPhone, portrait 480x320 phones
 .0 portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.
-**/
-
-/**
-    Fonts
-    @font-face {font-family: ''; src: url(res/fonts/);}
 **/
 
 /* site-header, post-title, widget-title: Lora */
@@ -158,7 +153,7 @@ ul.sub-menu a,
   padding: 10px 0px 9px;
   border-bottom-right-radius: 7px;
   border: none;
-  background: url('res/images/search.svg') center/40% no-repeat #009688;
+  background: url('resources/images/search.svg') center/40% no-repeat #009688;
   color: white;
   margin-left: -5px;
   font-size: 1.01em;
@@ -263,6 +258,7 @@ ul.sub-menu a:hover {
 .widget-item .tagcloud a,
 .widget-item ul li,
 .widget-item select {
+  background-color: #fdfdfd;
   margin-bottom: 0.2em;
   border: 1px solid #969696;
   font-family: 'Source Sans Pro', sans-serif;
@@ -350,6 +346,7 @@ ul.sub-menu a:hover {
 .widget-item ul li {
   padding: 5px;
   color: #82878c;
+  background-color: #fdfdfd;
 }
 .widget-item ul li a {
   display: inline-block;
@@ -403,13 +400,17 @@ ul.sub-menu a:hover {
   align-items: flex-start;
   margin-bottom: 2.1em;
 }
+
+ .post-standard .excerpt-info,
+ .post-media {
+  width: 70%;
+}
  .post-standard .excerpt-info {
-  order: 1;
-  width: 75%;
+  order:1;
 }
  .post-standard .post-thumbnail {
   order: 2;
-  width: 23%;
+  width: 28%;
   padding: 0px;
 }
  .post-standard .post-thumbnail img,
@@ -433,6 +434,19 @@ ul.sub-menu a:hover {
   margin-top: 0px;
   font-size: 1.25em;
 }
+ .post-media .post-title,
+ .post-media .post-meta,
+ .post-image img{
+  width: 100%;
+}
+ .post-media .media-excerpt,
+ .post-media .media-excerpt img,
+ .post-media .media-excerpt iframe {
+  width: 100%;
+}
+ .post-media .media-excerpt img {
+  height: auto;
+}
  .post-standard .post-title a {
   color: #fff;
 }
@@ -444,8 +458,8 @@ ul.sub-menu a:hover {
  .post-standard .post-meta {
   margin: 10px 0px;
 }
- .date-created-md,
- .meta-icon {
+ .meta-icon.md,
+ .date-created-md {
    display: none;
  }
 .post-standard .post-meta .comments_num {
@@ -525,6 +539,8 @@ ul.sub-menu a:hover {
 .single-post-page #post {
   flex-flow:row nowrap;
   justify-content: space-between;
+  min-width: 90%;
+  max-width: 95%;
 }
 #post #post-title {
   font-size: 1.65em;
@@ -556,6 +572,7 @@ ul.sub-menu a:hover {
   box-shadow: 1px 1px 10px #969696;
   font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
+  display: none;
 }
 #post .post-meta-xs .meta-info {}
 #post #post-meta > * {
@@ -584,9 +601,11 @@ ul.sub-menu a:hover {
   box-shadow: 2px 2px 5px #969696, -2px -2px 5px #969696;
 }
 .post-content iframe {
-  border-radius: 7px;
   box-shadow: 2px 2px 5px #666;
+  width: 100%;
+  min-height: 400px;
 }
+
 /*.post-has-thumbnail .post-content {
   width: 100%;
 }
@@ -769,17 +788,16 @@ ul.sub-menu a:hover {
 
 /* 3.6 Archives */
 .archive-title {
-  font: small-caps normal 1.3em'Source Sans Pro',sans-serif;
+  font: small-caps normal 2em'Source Sans Pro',sans-serif;
   letter-spacing: 1.5px;
+  width: 100%;
+  text-align: center;
 }
 
 /* 3.7 Page */
 #single-page {
   justify-content: space-around;
-}
-.post-content {
-  padding: 1em 1.5em;
-  font-size: 1.2em;
+  margin-left: -3em;
 }
 #single-page #content {
   width: 60%;
@@ -939,6 +957,9 @@ ul.sub-menu a:hover {
   .post-standard .excerpt-info {
     order: 2;
   }
+  .post-media {
+    width: 100%;
+  }
   .widget-item .widget-title,
   .post-standard .post-title,
   .widget-item #wp-calendar caption {
@@ -951,6 +972,7 @@ ul.sub-menu a:hover {
     text-align: center;
   }
   .meta-icon,
+  .meta-icon.md,
   .date-created-md,
   .post-meta .comments_num {
     display: inline;
@@ -959,11 +981,6 @@ ul.sub-menu a:hover {
   .post-standard .date-created,
   .post-standard .post-category {
     display: none;
-  }
-  .post-standard .meta-icon,
-  .date-created-md,
-  .post-standard .post-meta .comments_num {
-    display: inline;
   }
   .post-standard .excerpt,
   .widget-item .tagcloud a,
@@ -993,7 +1010,7 @@ ul.sub-menu a:hover {
   }
   .single-post-page #post {}
   #post #post-title {
-    font-size: 1.35em;
+    font-size: 1.1em;
   }
   #post .post-title.xs-fixed {
     font-size: 1em;
@@ -1004,13 +1021,13 @@ ul.sub-menu a:hover {
     padding: 1px;
     transition: top 0.2s ease-in-out;
   }
-  .single-post-page #post #post-meta {
+  #post #post-meta {
     display: none;
   }
-  .single-post-page #post .post-meta-xs .time-md {
+  #post .post-meta-xs .time-md {
     display: none;
   }
-  .single-post-page #post .post-meta-xs {
+  #post .post-meta-xs {
     display: block;
   }
   .single-post-page #post #post-content {
@@ -1053,7 +1070,11 @@ ul.sub-menu a:hover {
     border-width: 5px;
     left: 33.5px;
   }
-}
+  #single-page {
+    margin-left: 0;
+  }
+
+} /* end media query */
 
 /* 4.2 portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 /*
@@ -1103,11 +1124,13 @@ landscape 800x480 or 854x480 phones */
   .page-content .content,
   .page-content .sidebar {
     flex-flow: row wrap;
+    justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
   }
   .page-content .content {
     order: 1;
+    padding: 0 15px;
   }
   .page-content .sidebar {
     margin-left: 0;
@@ -1126,7 +1149,6 @@ landscape 800x480 or 854x480 phones */
   .widget-item ul li,
   .widget-item select,
   .widget-item #wp-calendar thead tr {
-    background-color: #fdfdfd;
     box-shadow: 1px 1px 3px #585757;
   }
   .widget-item #wp-calendar thead tr,
@@ -1145,7 +1167,13 @@ landscape 800x480 or 854x480 phones */
   }
   .widget-item #wp-calendar thead tr {  }
   .post-standard {
-    width: 45%;
+    width: 47%;
+  }
+  .post-media {
+    width: 100%;
+  }
+  .post-standard:nth-child(odd){
+    margin-right: 2.5em;
   }
   #post #post-title,
   .post-title {
@@ -1158,15 +1186,13 @@ landscape 800x480 or 854x480 phones */
     display: block;
     margin-top: 10px;
   }
-  .post-meta {
-    text-align: center;
-  }
   .post-standard .extra-text,
   .post-standard .date-created,
   .post-standard .post-category {
     display: none;
   }
   .meta-icon,
+  .meta-icon.md,
   .date-created-md,
   .post-meta .comments_num {
     display: inline;
@@ -1204,7 +1230,11 @@ landscape 800x480 or 854x480 phones */
     display: inline;
   }
   #post .post-meta-xs {
+    display: block;
     font-size: .95em;
+  }
+  #single-page {
+    margin-left: 0;
   }
   #single-page #content {
     width: 90%;
@@ -1214,7 +1244,7 @@ landscape 800x480 or 854x480 phones */
     flex-flow: row wrap;
   }
 
-} /* end of closure */
+} /* end media query */
 
 /* 4.4 big landscape tablets, laptops, and desktops */
 @media (min-width:64.063em) {

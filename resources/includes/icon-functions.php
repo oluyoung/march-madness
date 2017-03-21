@@ -7,7 +7,7 @@ FUNCTIONS TAKEN FROM WORDPRESS' TWENTY SEVENTEEN THEME FILE
  */
 function include_svg_icons() {
   // Define SVG sprite file.
-  $svg_icons = get_parent_theme_file_path( '/res/images/svg-icons.svg' );
+  $svg_icons = get_parent_theme_file_path( '/resources/images/svg-icons.svg' );
 
   // If it exists, include it.
   if ( file_exists( $svg_icons ) ) {

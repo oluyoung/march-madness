@@ -5,7 +5,7 @@ function march_resources(){
   // Main Stylesheet
   wp_enqueue_style('style', get_stylesheet_uri());
   // Main Script
-  wp_enqueue_script('script', get_template_directory_uri().'/res/js/script.js', array('jquery'), '', true );
+  wp_enqueue_script('script', get_template_directory_uri().'/resources/js/script.js', array('jquery'), '', true );
 }
 add_action('wp_enqueue_scripts', 'march_resources');
 
@@ -16,35 +16,43 @@ function march_setup(){
   register_nav_menus (
     array('header-nav' => __('Header Navigation'),)
   );
-  //    Add featured image support
+  //    Add Featured Image support
   add_theme_support('post-thumbnails');
+  //    Add Post Format support
+  add_theme_support( 'post-formats', array(
+    'image',
+    'video',
+  ));
 }
 add_action('after_setup_theme','march_setup');
 
 /* Add Widget support   */
 function registerSidebarArray($name, $id){
-    register_sidebar( array(
-        'name' => $name,
-        'id' => $id,
-        'before_widget' => '<div class="widget-item">',
-        'after_widget' => '</div>',
-        'before_title' => '<h4 class="widget-title">',
-        'after_title' => '</h4>'
-    ));
+  register_sidebar( array(
+    'name' => $name,
+    'id' => $id,
+    'before_widget' => '<div class="widget-item">',
+    'after_widget' => '</div>',
+    'before_title' => '<h4 class="widget-title">',
+    'after_title' => '</h4>'
+  ));
 }
 
 function WidgetInit(){
-    registerSidebarArray('Sidebar Index', 'sidebarindex');
+  registerSidebarArray('Sidebar Index', 'sidebarindex');
 }
 add_action('widgets_init', 'WidgetInit');
 
-
+/* custom excerpt length */
+function customExcerptLength(){
+  return 25;
+}
 
 /** Internal universal files fequired **/
 /**
  * SVG icons functions and filters.
  */
-require get_parent_theme_file_path( '/res/inc/icon-functions.php' );
+require get_parent_theme_file_path( '/resources/includes/icon-functions.php' );
 
 /* Editing the WP Core Comment Template */
 wp_list_comments( array(

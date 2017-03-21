@@ -42,6 +42,8 @@ jQuery(document).ready(function($) { /* Doc.Ready Begin */
     if( $('#prev-post').children().length == 0 ) $('#prev-post').remove();
     if( $('.tags-list').children().length == 0 ) $('.tags-list').parent().remove();
 
+    $('div[id^=attachment]').css('width','100%');
+
   })(jQuery);
 
 }); /* Doc.Ready end */

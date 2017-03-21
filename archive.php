@@ -1,8 +1,7 @@
 <?php get_header(); ?>
 
 <section class="page-content index-page">
-  <section class="content clearfix">
-      <!-- gives a title to an archive -->
+    <!-- gets the title to an archive -->
     <h2 class="archive-title">
     <?php
       /* Gets the Archive Type and Title */
@@ -14,6 +13,7 @@
       elseif ( is_year() ) echo get_the_date('Y').'\'s Archive';
       else echo 'Archive';
     ?></h2>
+  <section class="content clearfix">
     <?php
     /* WP Loop */
     if(have_posts()):
