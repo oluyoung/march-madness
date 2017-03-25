@@ -23,6 +23,9 @@ function march_setup(){
     'image',
     'video',
   ));
+  add_theme_support( 'automatic-feed-links' );
+  add_theme_support( 'title-tag' );
+
 }
 add_action('after_setup_theme','march_setup');
 
@@ -48,56 +51,52 @@ function customExcerptLength(){
   return 25;
 }
 
-/** Internal universal files fequired **/
-/**
+/** Internal universal files fequired
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/resources/includes/icon-functions.php' );
 
-/* Editing the WP Core Comment Template */
-wp_list_comments( array(
- 'callback' => 'march_list_comments',
-));
-/*
-  Original Template from http://bbird.me/editing-wp_list_comments-output/
-*/
 
-function march_list_comments( $comment, $depth, $args ) {
+/* Editing the WP Core Comment Template
+*
+* Original Template from http://bbird.me/editing-wp_list_comments-output/
+*/
+function march_comments( $comment, $depth, $args ) {
     $tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
 ?>
-<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '' ); ?>>
-  <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-    <footer class="comment-meta">
+<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $comment->has_children ? 'parent' : '' ); ?>>
+  <div id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+    <header>
       <div class="comment-author vcard">
         <?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
-        <?php printf( __( '%s' ), sprintf( '<b class="fn">%s</b>', get_comment_author_link() ) ); ?>
-      </div><!-- .comment-author -->
-      <div class="comment-metadata">
+        <?php printf( __( '%s' ), sprintf( '<span class="author_link">%s</span>', get_comment_author_link() ) ); ?>
+      </div><!-- /comment-author -->
+      <div class="comment-meta commentmetadata">
           <time datetime="<?php comment_time( 'c' ); ?>">
-            <?php printf( _x( '%s %1$s %s %2$s', '1: date, 2: time' ), get_svg(array('icon'=>'calendar')), get_comment_date(), get_svg(array('icon'=>'clock2')), get_comment_time() ); ?>
+            <?php printf( _x( '%1$s %2$s', '1: date, 2: time' ), get_comment_date(), get_comment_time() ); ?>
           </time>
         <?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
-      </div><!-- .comment-metadata -->
-      <?php if ( '0' == $comment->comment_approved ) : ?>
-      <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></p>
-      <?php endif; ?>
-    </footer><!-- .comment-meta -->
+      </div><!-- /comment-metadata -->
+    </header>
     <div class="comment-content">
       <?php comment_text(); ?>
-    </div><!-- .comment-content -->
-
+    </div><!-- /comment-content -->
+    <!-- if comment is awaiting moderation -->
+      <?php if ( '0' == $comment->comment_approved ) : ?>
+      <div class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></div>
+      <?php endif; ?><!-- /comment-moderation -->
     <?php
-    comment_reply_link( array_merge( $args, array(
+    comment_reply_link( array(
       'add_below' => 'div-comment',
       'depth'     => $depth,
       'max_depth' => $args['max_depth'],
       'before'    => '<div class="reply">',
       'after'     => '</div>'
-    ) ) );
+    ) );
     ?>
-  </article><!-- .comment-body -->
+  </div><!-- .comment-body -->
 <?php
-} /* end march_list_comments */
+} /* end march_comments */
 
 
 /*

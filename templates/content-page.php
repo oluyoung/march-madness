@@ -1,4 +1,4 @@
-<article class="page post <?php if( has_post_thumbnail() ){ ?> has-thumbnail <?php } ?>">
+<article class="page post">
   <!-- displays the post's thumbnail -->
   <?php the_post_thumbnail('banner-img'); ?>
 

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id=single-post class="single-post-page page-content">
+<section id="single-post" class="single-post-page page-content">
   <?php get_sidebar(); ?>
   <section id="content" class="content">
     <!-- Post itself-->
@@ -9,7 +9,7 @@
         if(have_posts()):
           while(have_posts()): the_post();
       ?>
-      <section id="post-content">
+      <section id="post-content" <?php post_class(); ?>>
         <!-- Post Title -->
         <h1 class="post-title " id="post-title" itemprop="headline"><?php the_title(); ?></h1>
 
@@ -57,6 +57,15 @@
             <span class="tags-list"> <?php the_tags('', ', ', '' ); ?> </span>
           </span>
         </aside>
+
+        <!-- Post Pages Links -->
+        <?php wp_link_pages( array(
+          'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'march' ) . '</span>',
+          'after'       => '</div>',
+          'link_before' => '<span>',
+          'link_after'  => '</span>',
+          ) );
+        ?>
 
         <!-- Next and Previous Post -->
         <section id=more-post-links class=clearfix>

@@ -4,8 +4,11 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name=viewport content="width=device-width">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?php bloginfo('title'); wp_title(); ?></title>
-  <?php wp_head(); ?>
+  <title><?php wp_title(); ?></title>
+  <?php
+  if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+  wp_head();
+  ?>
 </head>
 <body <?php body_class(); ?>>
 <section id=page-wrap>
