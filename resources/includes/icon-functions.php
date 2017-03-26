@@ -10,9 +10,7 @@ function include_svg_icons() {
   $svg_icons = get_parent_theme_file_path( '/resources/images/svg-icons.svg' );
 
   // If it exists, include it.
-  if ( file_exists( $svg_icons ) ) {
-    require_once( $svg_icons );
-  }
+  if ( file_exists( $svg_icons ) ) require_once( $svg_icons );
 }
 add_action( 'wp_footer', 'include_svg_icons', 9999 );
 

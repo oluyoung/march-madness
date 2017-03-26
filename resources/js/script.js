@@ -44,6 +44,8 @@ jQuery(document).ready(function($) { /* Doc.Ready Begin */
 
     $('div[id^=attachment]').css('width','100%');
 
+    $('.type-page').addClass('format-standard');
+
   })(jQuery);
 
 }); /* Doc.Ready end */

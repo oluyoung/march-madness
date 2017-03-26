@@ -9,13 +9,13 @@
         get_template_part('templates/content', get_post_format() );
       endwhile;
     else:
-      echo "<h4>No content found</h4>";
+      printf( __( '%s', 'march' ), sprintf( '<h2 class="no-content">%s</h2>', 'No Content Found' ));
     endif;
     /* Pagination for archives */
     the_posts_pagination( array(
       'mid_size' => 2,
-      'prev_text' => __( '<span class="multi-posts-nav">Previous</span>', 'textdomain' ),
-      'next_text' => __( '<span class="multi-posts-nav">Next</span>', 'textdomain' ),
+      'prev_text' => __( '<span class="multi-posts-nav">Previous</span>', 'march' ),
+      'next_text' => __( '<span class="multi-posts-nav">Next</span>', 'march' ),
     ) );
     ?>
     </section>

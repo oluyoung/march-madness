@@ -22,7 +22,7 @@
         get_template_part('templates/content', get_post_format() );
       endwhile;
     else:
-      echo "<h4>No content found</h4>";
+      printf( __( '%s', 'march' ), sprintf( '<h2 class="no-content">%s</h2>', 'No Content Found' ));
     endif;
     /* Pagination for archives */
     get_template_part('templates/archive-pagination.php');
