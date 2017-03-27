@@ -7,7 +7,7 @@ Description: Wordpress minimal theme, best suited for blogs.
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, two-columns, right-sidebar, left-sidebar, flexible-header, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, sticky-post, theme-options, threaded-comments
+Tags: one-column, two-columns, right-sidebar, left-sidebar, flexible-header, custom-colors, custom-menu, editor-style, featured-images, post-formats, sticky-post, theme-options, threaded-comments
 Text Domain: march
 */
 
@@ -15,29 +15,31 @@ Text Domain: march
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 1.0 General
-1.1 OOCSS
 2.0 Header
-  2.1 OOCSS
 3.0 Body
-  3.1 OOCSS
-  3.1 Sidebar
-  3.2 Index Body
-  3.
+  3.1 General
+  3.2 Sidebar
+  3.3 Index & Archives Body
+  3.4 Single Post Page
+  3.5 Page
+4.0 Media Queries
+  4.1 smartphones, iPhone, portrait 480x320 phones
+  4.2 portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones
 
-.0 smartphones, iPhone, portrait 480x320 phones
-.0 portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.
 **/
 
-/* site-header, post-title, widget-title: Lora */
-/* body texts: nav, excerpt, post, widget, post-meta: source sans pro */
-/* Comments meta: Inconsolata */
-
+/**
+  Fonts
+* site-header, post-title, widget-title: Lora
+* body texts: nav, excerpt, post, widget, post-meta: source sans pro
+* comments meta: Inconsolata
+**/
 @import url('https://fonts.googleapis.com/css?family=Alegreya+SC|Nunito|Source+Sans+Pro:300|Lora|Inconsolata');
-
 
 /**
     1.0 General
 **/
+
 body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
@@ -74,8 +76,6 @@ a:focus {
   max-width: 100%;
   height: auto;
 }
-
-/* 1.1 General OOCSS */
 #page-wrap,
 #site-header,
 .hd-top,
@@ -94,17 +94,10 @@ ul.sub-menu a,
   width: 0.9em;
   height: 0.9em;
 }
-/*
-.hd-top,
-.site-nav {
-  width:100%;
-}
-*/
 
-
-/* 2.0 Header */
-
-/* 2.0.1 General */
+/**
+    2.0 Header
+**/
 .fixed {
   position:fixed;
 }
@@ -171,6 +164,7 @@ ul.sub-menu a,
   border-bottom-left-radius: 7px;
   font-family: 'Lora', serif;
   font-weight: normal;
+  background-color: #37474f;
 }
 .hd-title a {
   color: #fff;
@@ -240,8 +234,12 @@ ul.sub-menu a:hover {
   color: #f5f3f3;
 }
 
-/* 3.0 Body */
-/* 3.1 General Body OOCSS */
+/**
+  3.0 Body
+**/
+/**
+  3.1 General
+**/
 .post-title,
 .format-standard .post-thumbnail img,
 .post-meta,
@@ -252,27 +250,25 @@ ul.sub-menu a:hover {
 #more-post-links #prev-post,
 #more-post-links #next-post,
 .post-content {
-  box-shadow: 1px 1px 10px #969696;
-  background-color: #fdfdfd;
+  box-shadow: 1px 1px 10px #9e9e9e;
   padding: 0.25em 0.6em;
 }
 .hd-title,
 .widget-item .widget-title,
 .post-title,
 .widget-item #wp-calendar caption {
-  background-color: #37474f;
   font-variant: small-caps;
   letter-spacing: 1px;
 }
 .widget-item .widget-title,
 .widget-item #wp-calendar caption {
   margin-bottom: 10px;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .widget-item .widget-title,
 .post-title,
 .widget-item #wp-calendar caption {
-  color:#fff;
+  border-bottom: 1px solid #37474f;
   font-family: 'Lora', serif;
   font-weight: normal;
 }
@@ -281,9 +277,9 @@ ul.sub-menu a:hover {
 .widget-item select {
   background-color: #fdfdfd;
   margin-bottom: 0.2em;
-  border: 1px solid #969696;
+  border-bottom: 1px dotted #37474f;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 0.95em;
+  font-size: 0.8em;
 }
 .single-post-page #post,
 #more-post-links,
@@ -304,17 +300,13 @@ ul.sub-menu a:hover {
 #more-post-links #prev-post a,
 #more-post-links #next-post a {
   color: #fff;
-  /* text-transform: uppercase; */
 }
-
 .post-meta a,
 .post-meta-xs a,
 .excerpt p a,
 .widget-item #wp-calendar td a {
   color: #8F0303;
 }
-
-/* 3.2 General Content Wrapper Styles*/
 .page-content {
   flex-flow: row wrap;
   justify-content: center;
@@ -339,29 +331,26 @@ ul.sub-menu a:hover {
   margin-left:100px;
 }
 
-/* 3.3 Sidebar */
-/* 3.3.1 OOCSS */
+/**
+    3.2 Sidebar
+**/
 .widget-item ul li,
-.widget-item #wp-calendar td a {
-}
+.widget-item #wp-calendar td a {}
 .widget-item #wp-calendar table,
 .widget-item #wp-calendar td {
   border-collapse: collapse;
-  border: 1px solid #969696;
 }
 .widget-item #wp-calendar #prev,
 .widget-item #wp-calendar #next {
-  background: #9E9E9E;
+  border-bottom: 2px solid #37474f;
   padding: 2px 5px;
-  border: none;
   letter-spacing: 1px;
 }
 .widget-item #wp-calendar #prev a,
 .widget-item #wp-calendar #next a {
-  color: #FFF;
+  border-bottom: 0;
+  color: #000;
 }
-
-/* 3.3.2 Sidebar Styles */
 .widget-item ul {
   list-style: none;
   padding: 0px;
@@ -386,15 +375,14 @@ ul.sub-menu a:hover {
 .widget-item #wp-calendar tr {
   text-align: center;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 0.9em;
-  background-color: #fdfdfd;
+  font-size: 0.8em;
 }
 .widget-item #wp-calendar caption {
   margin-bottom: 10px;
 }
-.widget-item #wp-calendar thead tr {
-  background-color: #9E9E9E;
-  color: #fff;
+.widget-item #wp-calendar thead th,
+.widget-item #wp-calendar #today {
+  border-bottom: 1px solid #37474f;
 }
 .widget-item #wp-calendar #prev {
   text-align: left;
@@ -407,6 +395,7 @@ ul.sub-menu a:hover {
 }
 .widget-item #wp-calendar td a {
   font-weight: bold;
+  border-bottom: 1px dotted;
 }
 .widget-item #wp-calendar td a:hover {
   text-decoration: underline;
@@ -417,7 +406,10 @@ ul.sub-menu a:hover {
   font-size: 0.9em;
 }
 
-/* 3.4 Index & Archives Body */
+
+/**
+    3.3 Index & Archives Body
+**/
  .format-standard {
   flex-flow: row wrap;
   justify-content: space-between;
@@ -434,16 +426,18 @@ ul.sub-menu a:hover {
 .format-standard #meta-sticky-icon {
   display: none;
 }
-.format-standard.sticky .post-title {
-  background-color: #ffeb38;
+.format-standard.sticky .post-title,
+.format-standard.sticky .excerpt {
+  border-color: #ffeb38;
 }
 
  .format-standard.sticky #meta-sticky-icon {
   display: inline;
   float: right;
-  fill: #fdfdfd;
+  fill: #ffeb38;
 }
  .format-standard .post-thumbnail {
+  align-self: center;
   order: 2;
   width: 28%;
   padding: 0px;
@@ -494,9 +488,7 @@ ul.sub-menu a:hover {
   background-color: lightgrey;
   margin-top: 0;
 }
- .format-standard .post-title a {
-  color: #fff;
-}
+ .format-standard .post-title a {}
  .post-meta,
  .post-meta-xs {
   font-family: 'Source Sans Pro', sans-serif;
@@ -541,8 +533,10 @@ ul.sub-menu a:hover {
 .prev {}
 .multi-posts-nav {}
 
-/* 3.5 Single Post Page */
-/* 3.5.1 OOCSS */
+
+/**
+    3.4 Single Post Page
+**/
 .single-post-page .sidebar,
 #post #post-meta {
   margin-top: 5.5em;
@@ -567,8 +561,6 @@ ul.sub-menu a:hover {
 #cancel-comment-reply-link {
   color: crimson;
 }
-
-/* 3.5.2 Single Styles */
 .single-post-page {
   width: 100%;
   flex-flow:row nowrap;
@@ -675,14 +667,6 @@ ul.sub-menu a:hover {
   min-height: 400px;
 }
 
-/*.has-post-thumbnail .post-content {
-  width: 100%;
-}
-.post-no-thumbnail .post-content {
-  width: 93%;
-}
-*/
-
 /* Post Next & Previous Links */
 #more-post-links {
   order:3;
@@ -699,7 +683,7 @@ ul.sub-menu a:hover {
   text-align: right;
 }
 
-/* 3.5.1 Post Comments */
+/* Post Comments */
 .post-comments {
   order: 3;
   width: 65%;
@@ -869,7 +853,7 @@ ul.sub-menu a:hover {
   font-size: 1em;
 }
 
-/* 3.6 Archives */
+/* 3.5 Archives */
 .archive-title {
   font: small-caps normal 2em 'Source Sans Pro',sans-serif;
   letter-spacing: 1.5px;
@@ -894,7 +878,7 @@ ul.sub-menu a:hover {
   text-transform: uppercase;
 }
 
-/* 3.7 Page */
+/* 3.6 Page */
 #single-page {
   justify-content: space-around;
   margin-left: -3em;
@@ -904,7 +888,7 @@ ul.sub-menu a:hover {
   justify-content: space-around;
 }
 
-/*  Clearfix Class */
+/*  3.7 Clearfix Class */
 .clearfix:before,
 .clearfix:after {
   content: '';
@@ -918,13 +902,9 @@ ul.sub-menu a:hover {
 }
 
 
-/* 4.0 Media Queries */
-
-/*
-@media (min-width:60.063em) { tablet, landscape iPad, lo-res laptops and desktops }
-@media (min-width:64.063em) { big landscape tablets, laptops, and desktops }
-@media (min-width:80.063em) { hi-res laptops and desktops }
- */
+/**
+    4.0 Media Queries
+**/
 
 /* 4.1 smartphones, iPhone, portrait 480x320 phones */
 @media all  and (max-width:40.063em){
@@ -1194,7 +1174,7 @@ ul.sub-menu a:hover {
 
 } /* end media query */
 
-/* 4.3 portrait tablets, portrait iPad, landscape e-readers,
+/* 4.2 portrait tablets, portrait iPad, landscape e-readers,
 landscape 800x480 or 854x480 phones */
 @media (min-width:40.063em) and (max-width: 64.063em) {
   .hd-title {
@@ -1346,8 +1326,3 @@ landscape 800x480 or 854x480 phones */
   }
 
 } /* end media query */
-
-/* 4.4 big landscape tablets, laptops, and desktops */
-@media (min-width:64.063em) {
-
-}

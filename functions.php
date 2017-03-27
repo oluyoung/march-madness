@@ -28,8 +28,6 @@ function march_setup(){
   if ( ! isset( $content_width ) ) {
     $content_width = 642;
   }
-  add_theme_support( "custom-background" );
-  add_theme_support( "custom-header" );
 
 }
 add_action('after_setup_theme','march_setup');
@@ -130,43 +128,68 @@ function march_customize_register($wp_customize){
     'priority' => 10,
   ));
     /*  Main Color */
-    $wp_customize->add_control(new $customizer_class($wp_customize, 'theme_main_color',
+    $wp_customize->add_setting('main_color', array(
+      'default' =>'#37474f',
+      'transport' => 'refresh',
+      'sanitize_callback' => 'main_color_sanitize'
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_color_control',
       array(
         'label' => __('Main Color', 'march'),
         'section' => 'theme_color_section',
-        'settings' => 'theme_main_color', 'Main Color')));
-      /* Link Color */
-      $wp_customize->add_control(new $customizer_class($wp_customize, 'theme_color_section',
+        'settings' => 'main_color')
+    ));
+
+    /* Link Color */
+    $wp_customize->add_setting('link_color', array(
+      'default' =>'#8F0303',
+      'transport' => 'refresh',
+      'sanitize_callback' => 'link_color_sanitize'
+    ));
+      $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'link_color_control',
       array(
         'label' => __('Link Color', 'march'),
         'section' => 'theme_color_section',
-        'settings' => 'theme_color_section',
-      )
+        'settings' => 'link_color')
     ));
 }
 add_action('customize_register', 'march_customize_register' );
+
+function main_color_sanitize( $input ) {
+  if ( $input ) return $input;
+  return '#37474f';
+}
+function link_color_sanitize( $input ) {
+  if ( $input ) return $input;
+  return '#8F0303';
+}
 
 function march_customizer_css(){ ?>
 <style>
 
 .site-nav.fixed,
 .hd-search #searchsubmit,
-.hd-title,
+.hd-title {
+  background-color: <?php echo get_theme_mod('main_color'); ?>;
+}
+
+.widget-item .tagcloud a,
+.widget-item ul li,
+.widget-item select,
+.format-standard .excerpt,
+.page-numbers,
 .widget-item .widget-title,
 .post-title,
-.widget-item #wp-calendar caption {
-  background-color: <?php echo get_theme_mod('theme_main_color'); ?>;
+.widget-item #wp-calendar caption
+{
+  border-color: <?php echo get_theme_mod('main_color'); ?>;
 }
-.format-standard .excerpt {
-  border-color: <?php echo get_theme_mod('theme_main_color'); ?>;
-}
-.page-numbers {
-  border-color: <?php echo get_theme_mod('theme_main_color'); ?>;
-}
+
 .post-meta a,
 .post-meta-xs a,
 .excerpt p a,
-.widget-item #wp-calendar td a {
+.widget-item #wp-calendar td a
+{
   color: <?php echo get_theme_mod('link_color'); ?>;
 }
 </style>
