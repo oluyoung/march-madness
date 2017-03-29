@@ -31,9 +31,9 @@ jQuery(document).ready(function($) { /* Doc.Ready Begin */
     // position:fixed navbar and searchbar scroll
     $(window).on('scroll', function(e){
       if ($(document).scrollTop() > $('.hd-top').height()) {
-        $('.site-nav, .hd-search').addClass('fixed');
+        $('.site-nav, .hd-search, .menu-icon').addClass('fixed');
       } else {
-        $('.site-nav, .hd-search').removeClass('fixed');
+        $('.site-nav, .hd-search, .menu-icon').removeClass('fixed');
       }
     });
 

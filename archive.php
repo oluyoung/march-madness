@@ -13,7 +13,7 @@
       elseif ( is_year() ) echo get_the_date('Y').'\'s Archive';
       else echo 'Archive';
     ?></h2>
-  <section class="content clearfix">
+  <section class="content march-index-layout clearfix">
     <?php
     /* WP Loop */
     if(have_posts()):
@@ -24,11 +24,19 @@
     else:
       printf( __( '%s', 'march' ), sprintf( '<h2 class="no-content">%s</h2>', 'No Content Found' ));
     endif;
-    /* Pagination for archives */
-    get_template_part('templates/archive-pagination.php');
     ?>
     </section>
-  <?php get_sidebar(); ?>
+
+    <?php
+    /* Pagination for archives */
+    the_posts_pagination( array(
+      'mid_size' => 2,
+      'prev_text' => __( '<span class="multi-posts-nav">Previous</span>', 'march' ),
+      'next_text' => __( '<span class="multi-posts-nav">Next</span>', 'march' ),
+    ) );
+
+    /* Sidebar */
+    get_sidebar(); ?>
 </section>
 
 <?php get_footer(); ?>

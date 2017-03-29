@@ -5,7 +5,7 @@ function march_resources(){
   // Main Stylesheet
   wp_enqueue_style('style', get_stylesheet_uri());
   // Main Script
-  wp_enqueue_script('script', get_template_directory_uri().'/resources/js/script.js', array('jquery'), '', true );
+  wp_enqueue_script('script', get_template_directory_uri().'/resources/js/march_styling_script.js', array('jquery'), '', true );
 }
 add_action('wp_enqueue_scripts', 'march_resources');
 
@@ -172,7 +172,11 @@ function march_customizer_css(){ ?>
 .hd-title {
   background-color: <?php echo get_theme_mod('main_color'); ?>;
 }
-
+/* Scrollbar Handle */
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:window-inactive {
+  background-color: <?php echo get_theme_mod('main_color'); ?>;
+}
 .widget-item .tagcloud a,
 .widget-item ul li,
 .widget-item select,

@@ -1,6 +1,6 @@
 /*
 Theme Name: March
-Theme URI: https://localhost/wordpress
+Theme URI: https://wordpress.org/themes/
 Author: Trevor Young
 Author URI: https://ampro.me
 Description: Wordpress minimal theme, best suited for blogs.
@@ -93,6 +93,31 @@ ul.sub-menu a,
 .icon {
   width: 0.9em;
   height: 0.9em;
+}
+/* Scrollbar
+*/
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgb(255, 255, 255);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #37474f;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #37474f;
 }
 
 /**
@@ -345,7 +370,7 @@ ul.sub-menu a:hover {
   border-bottom: 2px solid #37474f;
   padding: 2px 5px;
   letter-spacing: 1px;
-}
+      }
 .widget-item #wp-calendar #prev a,
 .widget-item #wp-calendar #next a {
   border-bottom: 0;
@@ -437,7 +462,6 @@ ul.sub-menu a:hover {
   fill: #ffeb38;
 }
  .format-standard .post-thumbnail {
-  align-self: center;
   order: 2;
   width: 28%;
   padding: 0px;
@@ -524,6 +548,7 @@ ul.sub-menu a:hover {
   width: 100%;
   text-align: center;
   font-family: monospace;
+  order: 2;
 }
 .page-numbers {
   border-top: 2px solid #37474f;
@@ -910,23 +935,21 @@ ul.sub-menu a:hover {
 @media all  and (max-width:40.063em){
   /* Header */
   .site-nav.fixed {
-    width:100%;
+    width:65%;
   }
   .hd-search.fixed {
-    top:0px; /* 70px */
-    left:34.1px;
+    top:0;
+    left:31.1px;
   }
   .hd-top {
-    justify-content:space-between;
-    position: fixed;
+    flex-flow: row wrap;
     width: 100%;
-  }
-  .hd-search,
-  .hd-title {
-    width:45%;
   }
   .hd-search {
     margin-right:0em;
+    order: 2;
+    width: 85%;
+    font-size: .75em;
   }
   .hd-search #s,
   .hd-search #searchsubmit,
@@ -940,11 +963,15 @@ ul.sub-menu a:hover {
   .hd-title {
     padding-left:0.5em;
     font-size: 1em;
+    order: 1;
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
   }
   .hd-search #s {
     width:10%;
     transition: width .5s ease-in 0s;
-    padding-top: 7px;
+    padding-top: 8px;
     padding-bottom: 4px;
   }
   .hd-search #s:focus {
@@ -952,7 +979,7 @@ ul.sub-menu a:hover {
     outline: none;
   }
   .hd-search #searchsubmit {
-    width:18%;
+    width:14%;
     padding: 10px 4px 6px;
   }
 
@@ -1010,8 +1037,11 @@ ul.sub-menu a:hover {
     display: block;
     cursor:pointer;
     border-bottom: 0px;
-    color: #F3F3F5 ;
+    color: #F3F3F5;
+    order: 2;
+    font-size: .77em;
   }
+
   a.menu-icon:focus {
     text-decoration: none;
   }
@@ -1194,12 +1224,13 @@ landscape 800x480 or 854x480 phones */
   }
   .page-content .content,
   .page-content .sidebar {
-    flex-flow: row wrap;
-    width: 100%;
   }
   .page-content .content {
     order: 1;
-    padding: 0 15px;
+    display: block;
+    -webkit-column-count: 2;
+    column-count: 2;
+    width: 95%;
   }
   .page-content .sidebar {
     margin-left: 0;
@@ -1209,6 +1240,8 @@ landscape 800x480 or 854x480 phones */
     justify-content: space-between;
     padding: 0 1em 10px;
     order: 2;
+    flex-flow: row wrap;
+    width: 100%;
   }
   .widget-item .widget-title,
   .widget-item #wp-calendar caption {
@@ -1242,7 +1275,7 @@ landscape 800x480 or 854x480 phones */
   }
   .widget-item #wp  -calendar thead tr {  }
   .format-standard {
-    width: 47%;
+    width: 100%;
   }
   #post #post-title,
   .post-title {
