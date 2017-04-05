@@ -37,6 +37,9 @@ jQuery(document).ready(function($) { /* Doc.Ready Begin */
       }
     });
 
+    // makes the search bar exactly below the navbar when fixed
+    $('.hd-search.fixed').css('top', $('.site-nav.fixed').outerHeight() +'px');
+
     // remove element display if element is empty i.e. no data from WP database available
     if( $('#next-post').children().length == 0 ) $('#next-post').remove();
     if( $('#prev-post').children().length == 0 ) $('#prev-post').remove();

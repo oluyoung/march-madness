@@ -43,7 +43,7 @@ Text Domain: march
 body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 1.5;
   background-color: #FFF;
 }
@@ -80,6 +80,7 @@ a:focus {
 #site-header,
 .hd-top,
 .site-nav #menu-primary-menu-links,
+.site-nav .menu ul,
 ul.sub-menu a,
 .page-content,
 .page-content .content,
@@ -98,20 +99,16 @@ ul.sub-menu a,
 */
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 5px rgb(255, 255, 255);
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
   background: #37474f;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
@@ -131,6 +128,7 @@ ul.sub-menu a,
   background-color: #37474f;
   z-index: 1000;
 }
+.site-nav.fixed .menu ul li a,
 .site-nav.fixed .menu-item a,
 .site-nav.fixed .menu-item-has-children::after {
   color: #fff;
@@ -139,7 +137,7 @@ ul.sub-menu a,
   color: #000;
 }
 .hd-search.fixed {
-  top:46px; /* 70px */
+  top: 44px;
   z-index: 2000;
 }
 #site-header {
@@ -157,7 +155,7 @@ ul.sub-menu a,
   width: 30%;
   margin-right: 2.5em;
 }
-.hd-search #s {
+.searchform #s {
   width: 68%;
   padding: 7px;
   border: 0px;
@@ -168,10 +166,10 @@ ul.sub-menu a,
   border-bottom: 2px solid #23282d;
   border-top: 2px solid #23282d;
 }
-.hd-search #s:focus {
+.searchform #s:focus {
   background-color: #FFF;
 }
-.hd-search #searchsubmit {
+.searchform #searchsubmit {
   width: 15%;
   padding: 10px 0px 9px;
   border-bottom-right-radius: 7px;
@@ -204,7 +202,8 @@ ul.sub-menu a,
 .site-nav .closebtn {
   display:none;
 }
-.site-nav #menu-primary-menu-links {
+.site-nav #menu-primary-menu-links,
+.site-nav .menu ul {
   list-style: none;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -275,7 +274,6 @@ ul.sub-menu a:hover {
 #more-post-links #prev-post,
 #more-post-links #next-post,
 .post-content {
-  box-shadow: 1px 1px 10px #9e9e9e;
   padding: 0.25em 0.6em;
 }
 .hd-title,
@@ -430,6 +428,15 @@ ul.sub-menu a:hover {
   background-color: #fff;
   font-size: 0.9em;
 }
+.widget-item #searchform #s {
+  border-bottom: 1px solid #23282d;
+  border-top: 1px solid #23282d;
+  border-left: 1px solid #23282d;
+}
+.widget-item #searchform #searchsubmit {
+  padding: 9px 0 8px;
+  border-radius: 0;
+}
 
 
 /**
@@ -443,7 +450,7 @@ ul.sub-menu a:hover {
 }
  .format-standard .excerpt-info,
  .post-media {
-  width: 70%;
+  width: 95%;
 }
  .format-standard .excerpt-info {
   order:1;
@@ -462,6 +469,7 @@ ul.sub-menu a:hover {
   fill: #ffeb38;
 }
  .format-standard .post-thumbnail {
+  display: none;
   order: 2;
   width: 28%;
   padding: 0px;
@@ -517,6 +525,8 @@ ul.sub-menu a:hover {
  .post-meta-xs {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.8em;
+  border-bottom: 1px dotted #969696;
+  width: 100%;
  }
  .format-standard .post-meta {
   margin: 10px 0px;
@@ -548,7 +558,7 @@ ul.sub-menu a:hover {
   width: 100%;
   text-align: center;
   font-family: monospace;
-  order: 2;
+  order: 3;
 }
 .page-numbers {
   border-top: 2px solid #37474f;
@@ -639,7 +649,7 @@ ul.sub-menu a:hover {
   text-align: center;
   padding: .5em 1em
 }
- .single-format-video #post #post-content {}
+.single-format-video #post #post-content {}
 #post #post-meta,
 #post .post-meta-xs {
   padding: 0.5em 0.67em;
@@ -655,7 +665,6 @@ ul.sub-menu a:hover {
   box-sizing: border-box;
 }
 #post .post-meta-xs {
-  box-shadow: 1px 1px 10px #969696;
   font-family: 'Source Sans Pro', sans-serif;
   text-align: center;
   display: none;
@@ -675,8 +684,8 @@ ul.sub-menu a:hover {
   display: block;
 }
 .post-content {
+  border-bottom: 3px solid #37474f;
   padding: 1em 1.5em;
-  box-shadow: 0px 0px 10px #969696;
   margin-top: 10px;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -956,6 +965,11 @@ ul.sub-menu a:hover {
   .hd-title{
     padding:5px;
   }
+  #searchform #s {
+    border-bottom: 1px solid #23282d;
+    border-top: 1px solid #23282d;
+    border-left: 1px solid #23282d;
+  }
   .hd-search #s,
   .hd-title {
     font-size:1em;
@@ -1046,9 +1060,7 @@ ul.sub-menu a:hover {
     text-decoration: none;
   }
   /* Content */
-  .page-content{
-    padding: 0px 10px;
-  }
+  .page-content{}
   #single-page #content,
   .page-content .content,
   .page-content #content,
@@ -1062,9 +1074,18 @@ ul.sub-menu a:hover {
   .page-content #content, {
     order: 1;
   }
+
   .page-content .sidebar {
+    order: 3;
+    margin-left: 0;
+    margin-top: 50px;
+    background-color: #969696;
+    box-shadow: 0 -3px 5px #5d5c5c;
+    justify-content: space-between;
+    padding: 1em 1em 10px;
     order: 2;
-    margin: 10%;
+    flex-flow: row wrap;
+    width: 100%;
   }
   .format-standard.no-thumbnail .excerpt-info {
     width: 100%;
@@ -1082,6 +1103,12 @@ ul.sub-menu a:hover {
   .format-standard .post-title,
   .widget-item #wp-calendar caption {
     font-size: 1em;
+  }
+  .widget-item {
+    width: 100%;
+  }
+  .format-standard .post-title {
+    text-align: center;
   }
   .format-standard .post-meta {
     font-size: .7em;
@@ -1112,12 +1139,17 @@ ul.sub-menu a:hover {
   .widget-item .tagcloud a {
     font-size: .75em !important;
   }
+  .widget-item #searchform #searchsubmit {
+    padding: 9px 0px 8px;
+  }
+  .pagination {
+    order: 2;
+  }
   .single-post-page {
     margin: 0;
     margin-top: 100px;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items: center;
   }
   .single-post-page #content {
     order: 1;
@@ -1246,6 +1278,7 @@ landscape 800x480 or 854x480 phones */
   .widget-item .widget-title,
   .widget-item #wp-calendar caption {
     background-color: #37474f !important;
+    color: #fdfdfd;
   }
   .widget-item #wp-calendar caption {
     margin-top: 23.408px;
@@ -1257,11 +1290,17 @@ landscape 800x480 or 854x480 phones */
   .widget-item #wp-calendar thead tr {
     box-shadow: 1px 1px 3px #585757;
     font-size: .8em;
+    background-color: #fdfdfd;
   }
   .widget-item #wp-calendar thead tr,
   .widget-item #wp-calendar #prev,
   .widget-item #wp-calendar #next {
     background-color: #515151;
+    color: #fdfdfd;
+  }
+  .widget-item #wp-calendar #prev a,
+  .widget-item #wp-calendar #next a{
+    color: #fdfdfd;
   }
   .widget-item #wp-calendar .pad,
   .widget-item #wp-calendar #next.pad,
@@ -1312,6 +1351,9 @@ landscape 800x480 or 854x480 phones */
   }
   .post-content {
     font-size: 1.1em;
+  }
+  .pagination {
+    order: 2;
   }
   .single-post-page {
     flex-flow: row wrap;

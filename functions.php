@@ -17,7 +17,7 @@ function march_setup(){
     array('header-nav' => __('Header Navigation', 'march'),)
   );
   //    Add Featured Image support
-  add_theme_support('post-thumbnails');
+  // add_theme_support('post-thumbnails');
   //    Add Post Format support
   add_theme_support( 'post-formats', array(
     'image',
