@@ -4,9 +4,11 @@
 function march_resources(){
   // Main Stylesheet
   wp_enqueue_style('style', get_stylesheet_uri());
-  // Main Script
-  wp_enqueue_script('script', get_template_directory_uri().'/resources/js/march_styling_script.js', array('jquery'), '', true );
-}
+  // Navbar styling plugin
+  wp_register_script('menumaker', get_template_directory_uri().'/resources/js/menumaker.js', array('jquery'), '', true );
+  // March Styling Script
+  wp_enqueue_script('march_styling_script', get_template_directory_uri().'/resources/js/march_styling_script.js', array('jquery','menumaker'), '', true );
+} 
 add_action('wp_enqueue_scripts', 'march_resources');
 
 
@@ -17,7 +19,7 @@ function march_setup(){
     array('header-nav' => __('Header Navigation', 'march'),)
   );
   //    Add Featured Image support
-  // add_theme_support('post-thumbnails');
+  add_theme_support('post-thumbnails');
   //    Add Post Format support
   add_theme_support( 'post-formats', array(
     'image',

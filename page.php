@@ -1,18 +1,21 @@
 <?php get_header(); ?>
 
-<section id="single-page" class="single-post-page page-content">
+<section id="single-page" class="single-post-page page-content single-page">
   <?php get_sidebar(); ?>
   <section id=content>
     <?php
     while ( have_posts() ) : the_post();
       get_template_part( 'templates/content', 'page' );
-
-      // If comments are open or we have at least one comment, load up the comment template.
-      if ( comments_open() || get_comments_number() ) :
-        comments_template();
-      endif;
     endwhile; // End of the loop.
     ?>
+    <!-- Comments -->
+    <section class=post-comments>
+      <?php
+        if ( comments_open() || get_comments_number() ) :
+          comments_template();
+        endif;
+      ?>
+    </section>
   </section>
 </section>
 

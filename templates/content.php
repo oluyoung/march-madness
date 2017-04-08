@@ -1,4 +1,4 @@
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?> itemscope itemtype="https://schema.org/Article">
+<article <?php post_class(); ?> id="post-<?php the_ID(); ?>" itemscope itemtype="https://schema.org/Article">
 
   <!-- displays the post's thumbnail/featured-image -->
   <div class="post-thumbnail">
