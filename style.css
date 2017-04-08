@@ -714,7 +714,7 @@ img {
 }
 .post-content {
   border-bottom: 3px solid #37474f;
-  padding: 1em 1.5em;
+  padding: 1em .5em;
   margin-top: 10px;
   font-family: 'Source Sans Pro', sans-serif;
 }

@@ -44,8 +44,8 @@ jQuery(document).ready(function($) { /* Doc.Ready Begin */
   if( $('#prev-post').children().length == 0 ) $('#prev-post').remove();
   if( $('.tags-list').children().length == 0 ) $('.tags-list').parent().remove();
 
-  // gives images embedded a max-width of 100% to keep them in line
-  $('div[id^=attachment]').css('max-width','100%');
+  // gives images embedded a max-width  of 100% to keep them in line
+  $('div[id^=attachment]').css({'max-width':'100%'});
 
   // Adds format-standard class to maintain styling
   $('.type-page').addClass('format-standard');
